@@ -1,0 +1,52 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class ChangeResistorValueButton : MonoBehaviour
+{
+    public string RVal;
+    public string LVal;
+    public string CVal;
+    public string VSVal;
+    public string DVal;
+    public string fVal;
+    public float vout;
+    public float imax;
+    public float imin;
+    public float vl;
+    public float Rval;
+    public float Lval;
+    public float Cval;
+    public float VSval;
+    public float Dval;
+    public float fval;
+    public GameObject resistor;
+    public GameObject inductor;
+    public GameObject capacitor;
+    public GameObject voltageS;
+    public GameObject dutyRatio;
+    public GameObject frequency;
+    public GameObject outputDisplay;
+
+    public void storeData()
+    {
+        RVal = resistor.GetComponent<Text>().text;
+        LVal = resistor.GetComponent<Text>().text;
+        CVal = resistor.GetComponent<Text>().text;
+        VSVal = voltageS.GetComponent<Text>().text;
+        DVal = dutyRatio.GetComponent<Text>().text;
+        fVal = frequency.GetComponent<Text>().text;
+    }
+
+    public void outputData()
+    {
+        VSval = float.Parse(VSVal);
+        Dval = float.Parse(DVal);
+        vout = VSval * Dval;
+
+
+
+        outputDisplay.GetComponent<Text>().text = "Vo = " + vout;
+    }
+}
